@@ -20,6 +20,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 克隆此项目，无git可以下载并解压
 
+将.env.example重命名为.env，并填写相应账号密码
+
 安装依赖
 ```bash
 uv pip install -r requirements.txt
