@@ -1,0 +1,9 @@
+# 本机密钥和环境配置
+.env
+.env.*
+!.env.example
+
+# Python 缓存与运行日志
+__pycache__/
+*.py[cod]
+*.log
