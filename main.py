@@ -38,8 +38,8 @@ ZZU_USERNAME = require_env("ZZU_USERNAME")
 ZZU_PASSWORD = require_env("ZZU_PASSWORD")
 
 # 邮箱配置
-SMTP_SERVER = "mail.v.zzu.edu.cn"  # 发信服务器
-SMTP_PORT = 465                    # SSL 端口 (注意：465通常对应SSL加密)
+SMTP_SERVER = require_env("SMTP_SERVER")
+SMTP_PORT = int(require_env("SMTP_PORT"))                    # SSL 端口 (注意：465通常对应SSL加密)
 
 SENDER_EMAIL = require_env("SENDER_EMAIL")
 SENDER_PASSWORD = require_env("SENDER_PASSWORD")
@@ -117,7 +117,7 @@ def is_online_ping(host,timeout: int = REQUEST_TIMEOUT_SECONDS):
             print(f"Ping {CHECK_URL} 网站失败！")
             return False
         else:
-            print(f"Ping {host} 成功，延迟时间: {response * 1000} ms")
+            print(f"Ping {host} 成功，延迟时间: {response * 1000:.4f} ms")
             return response * 1000  # 转换为毫秒
     except Exception as e:
         print(f"Ping {CHECK_URL} 网站时发生异常！错误信息: {e}")
@@ -203,8 +203,8 @@ def monitor_login_state_once(username: str, password: str) -> None:
 如果看到这行，说明网络已恢复正常！目前可以正常访问外网。
 为了避免网络波动,请检查组网情况。
 服务器网络状态：   百度: {pingTime} ms       
-                哔哩哔哩: {is_online_ping("bilibili.com",REQUEST_TIMEOUT_SECONDS)} ms
-                原神: {is_online_ping("ys.mihoyo.com",REQUEST_TIMEOUT_SECONDS)} ms
+                哔哩哔哩: {is_online_ping("bilibili.com",REQUEST_TIMEOUT_SECONDS):.2f} ms
+                原神: {is_online_ping("ys.mihoyo.com",REQUEST_TIMEOUT_SECONDS):.2f} ms
 """
                     send_email(
                         email_subject="NAS校园网出现掉线警报",
