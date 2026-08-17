@@ -6,6 +6,6 @@ cd /d "%~dp0"
 
 :loop
 echo [%date% %time%]
-uv run python3 main.py
+uv run python main.py
 timeout /t 10 /nobreak >nul
 goto loop
