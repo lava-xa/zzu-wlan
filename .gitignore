@@ -7,3 +7,7 @@
 __pycache__/
 *.py[cod]
 *.log
+
+# 虚拟环境和 IDE 配置
+.venv/
+.idea/
