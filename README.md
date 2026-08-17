@@ -43,4 +43,4 @@ uv run python main.py
 
 脚本会运行 `uv run python main.py`，命令结束后等待 10 秒再次运行。按 `Ctrl+C` 停止。
 
-如果无法运行，检查python环境变量，如不是python3,可将.bat内python3换为python
+如果无法运行，检查python环境变量和uv安装，如不是python3,可将.bat内python3换为python
